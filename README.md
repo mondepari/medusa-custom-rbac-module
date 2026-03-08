@@ -199,11 +199,11 @@ method: "POST",
 policies: [{ resource: "loyalty_point", operation: "delete" }],
 },
 ```
-#№ What needs to be done after deployment/restart
+# What needs to be done after deployment/restart
 
 Once RBAC is enabled (`MEDUSA_FF_RBAC=true`) and the server is started, the new policies `loyalty_setting:read`, `loyalty_point:delete`, etc. will appear in the `rbac_policy` table. If the bootstrap script has already been run (i.e., the Super Admin has all the policies), then **nothing else needs to be done**. However, if the script was run before the loyalty policies appeared, you need to run it again to add the new policies to the Super Admin role.
 
-## Limitations and important details
+# Limitations and important details
 
 1. Policies don't apply to store routes — only /admin/*
 2. Custom routes without policies in middlewares are available to all authorized admin users (even without a role) until you explicitly add protection.
